@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  vue-ui:
+    image: dapalt/vue-cli:3.3.0-node8.15
+    volumes:
+      - "./vue-example/apps:/vue-apps:rw"
+      - "./vue-example/.gitconfig:/root/.gitconfig:rw"
+      - "./vue-example/.vuerc:/root/.vuerc:rw"
+      - "./vue-example/.vue-cli-ui:/root/.vue-cli-ui:rw"
+    network_mode: host
+    environment:
+      UI_HOST: localhost # default 127.0.0.1
+      UI_PORT: 8001 # default 8000
+    expose: 
+      - 8001
